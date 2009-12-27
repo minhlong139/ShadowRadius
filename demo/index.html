@@ -2,6 +2,7 @@
 <head>
     <script type="text/javascript" src="../mootools/mootools-1.2.1-core.js"></script>
     <script type="text/javascript" src="../mootools/mootools-1.2-more.js"></script>
+    <script type="text/javascript" src="../Source/border-radius.js"></script>
     <script type="text/javascript" src="../Source/shadow-radius.js"></script>
     <style>
         .box {width:120px;height:120px;position:absolute;}
@@ -28,7 +29,7 @@
                 el.shadowRadius({'radius': 0});
             });
             $$('.s2').each(function(el){
-                el.shadowRadius({'radius': 10, 'img_src': ['shadow10.png', 'shadow-y.png', 'shadow-x.png']});
+                el.shadowRadius({'radius': 10, 'img_path': '../images/'});
             });
         });
     </script>

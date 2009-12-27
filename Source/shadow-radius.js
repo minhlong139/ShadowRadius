@@ -21,12 +21,14 @@ var ShadowRadius = new Class({
   Implements: [Options],
 
   options: {
-    img_src: ['shadow0.png', 'shadow-y.png', 'shadow-x.png'],
+    img_path: '../images/',
     radiusTop: 0,
     radiusBottom: 0,
     radius: 0,
     key: 'shadow-radius-UJTYRoeiutewrghdsgguwerSDHFsdhweDgqxcnNVDsdfqweiuwertretsdkfaGSFD'
   },
+  
+  img_src: [],
   
   shadows: ['topRight', 'right', 'bottomRight', 'bottom', 'bottomLeft'],
   
@@ -34,8 +36,16 @@ var ShadowRadius = new Class({
     this.element = element;
     this.element.borderWidth = parseInt(this.element.getStyle('border-top-width'));
     this.initOptions(options);
+    this.initImagesSrc();
     this.build();
     if (this.options.radius>0) this.element.borderRadius({'radius': this.options.radius});
+  },
+  
+  initImagesSrc: function() {
+    this.img_src = ['shadow'+this.options.radius+'.png', 'shadow-y.png', 'shadow-x.png'];
+    for (var i=0;i<this.img_src.length;i++) {
+      this.img_src[i] = this.options.img_path+this.img_src[i];
+    }
   },
   
   topRightStyles: {
@@ -104,31 +114,31 @@ var ShadowRadius = new Class({
     $extend(this.topRightStyles, {
       'background-color': 'transparent',
       'background-repeat': 'no-repeat',
-      'background-image': 'url('+this.options.img_src[0]+')',
+      'background-image': 'url('+this.img_src[0]+')',
       'background-position': '-20px 0'
     });
     $extend(this.rightStyles, {
       'background-color': 'transparent',
       'background-repeat': 'repeat-y',
-      'background-image': 'url('+this.options.img_src[1]+')',
+      'background-image': 'url('+this.img_src[1]+')',
       'background-position': '0 0'
     });
     $extend(this.bottomRightStyles, {
       'background-color': 'transparent',
       'background-repeat': 'no-repeat',
-      'background-image': 'url('+this.options.img_src[0]+')',
+      'background-image': 'url('+this.img_src[0]+')',
       'background-position': '-20px -20px'
     });
     $extend(this.bottomStyles, {
       'background-color': 'transparent',
       'background-repeat': 'repeat-x',
-      'background-image': 'url('+this.options.img_src[2]+')',
+      'background-image': 'url('+this.img_src[2]+')',
       'background-position': '0 0'
     });
     $extend(this.bottomLeftStyles, {
       'background-color': 'transparent',
       'background-repeat': 'no-repeat',
-      'background-image': 'url('+this.options.img_src[0]+')',
+      'background-image': 'url('+this.img_src[0]+')',
       'background-position': '0 -20px'
     });
   },
@@ -154,7 +164,7 @@ var ShadowRadius = new Class({
       this.setupParentStatic(this.shadows[i]);
       this[this.shadows[i]].setStyles(this[this.shadows[i]+'Styles']);
     }
-    if (this.options.img_src.length==3) {
+    if (this.img_src.length==3) {
       this.setupImages();
       var rightHeight = this.element.clientHeight-this.topRightStyles.height-this.bottomRightStyles.height/2+2*this.element.borderWidth;
       var bottomWidth = this.element.clientWidth-this.bottomLeftStyles.width-this.bottomRightStyles.width/2+2*this.element.borderWidth;
