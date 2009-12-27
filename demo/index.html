@@ -1,0 +1,80 @@
+<html>
+<head>
+    <script type="text/javascript" src="../mootools/mootools-1.2.1-core.js"></script>
+    <script type="text/javascript" src="../mootools/mootools-1.2-more.js"></script>
+    <script type="text/javascript" src="../Source/shadow-radius.js"></script>
+    <style>
+        .box {width:120px;height:120px;position:absolute;}
+        .box1 {left: 10px;top:10px;background:#000;border: 3px solid red;}
+        .box2 {left: 300px;top:10px;background:#cdcdcd;}
+        .style1 {left: 10px;top:200px;background:#000;}
+        .style2 {left: 300px;top:200px;background:#cdcdcd;}
+        
+        .s1 {background:#FFF9D2;padding: 20px 15px;border: 1px solid #C9C39E;font-family:"Trebuchet MS",Verdana,Arial,sans-serif;}
+        .s2 {background:#cdcdcd;padding: 10px;border: 2px solid #c3c3c3;font-family:"Trebuchet MS",Verdana,Arial,sans-serif;}
+        .center {max-width:400px;min-width:200px;height:300px;margin: 0 auto;position:relative;}
+        
+        .shadow-t-r{background:transparent url(shadow.png) no-repeat -20px 0;position:relative;height:20px;width: 20px;right:-390px;top:-192px;}
+        .shadow-r {background:transparent url(shadow-y.png) repeat-y 0 0;position:relative;height:161px;width: 20px;right:-390px;top:-192px;}
+        .shadow-b-r{background:transparent url(shadow.png) no-repeat -20px -20px;position:relative;height:20px;width: 20px;right:-390px;top:-192px;}
+        .shadow-b{background:transparent url(shadow-x.png) repeat-x -20px 0;position:relative;height: 20px;width:370px;right:-20px;top:-212px;}
+        .shadow-b-l{background:transparent url(shadow.png) no-repeat 0 -20px;position:relative;height:20px;width: 20px;left:0;top:-232px;}
+        
+        
+    </style>
+    <script type="text/javascript">
+        document.addEvent('domready', function() {
+            $$('.s1').each(function(el){
+                el.shadowRadius({'radius': 0});
+            });
+            $$('.s2').each(function(el){
+                el.shadowRadius({'radius': 10, 'img_src': ['shadow10.png', 'shadow-y.png', 'shadow-x.png']});
+            });
+        });
+    </script>
+</head>
+
+<body> 
+<!--
+    <div class="box box1 border-radius"><span>Lorem ipsum dolor sit amet, etium. </span></div>
+    <div class="box box2 border-radius">
+        <span>1</span>
+        <span>2</span>
+    </div>
+    
+    <div style="position:absolute;left:600px;top:10px;width:240px;height:240px;background:#f7f7f7">
+        <div class="box border-radius" style="width:50%;height:50%;background:red;">
+        
+        </div>
+    </div>
+    <div class="box style1"></div>
+    <div class="box style2"></div>
+    <div class="box" style="left:600px;top:200px;background:red;"></div>
+    <div class="center">
+        
+        <div class="border-radius s1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae elementum nibh. Nulla vel blandit ante. Ut rhoncus tempor sollicitudin. Sed laoreet erat rutrum magna sodales dapibus. Sed rutrum turpis sed eros condimentum eu congue felis elementum. Vestibulum euismod arcu at lacus laoreet vitae lacinia mauris interdum. Nunc vitae mi ac diam posuere sagittis ac at dolor. 
+        </div>
+        <div class="shadow-t-r"></div>
+        <div class="shadow-r"></div>
+        <div class="shadow-b-r"></div>
+        <div class="shadow-b"></div>
+        <div class="shadow-b-l"></div>
+        
+        
+    </div>
+-->
+    <div class="center">        
+        <div class="border-radius s1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae elementum nibh. Nulla vel blandit ante. Ut rhoncus tempor sollicitudin. Sed laoreet erat rutrum magna sodales dapibus. Sed rutrum turpis sed eros condimentum eu congue felis elementum. Vestibulum euismod arcu at lacus laoreet vitae lacinia mauris interdum. Nunc vitae mi ac diam posuere sagittis ac at dolor. 
+        </div>      
+    </div>
+    
+    <div class="center">
+        <div class="border-radius shadow-radius s2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae elementum nibh. Nulla vel blandit ante. Ut rhoncus tempor sollicitudin. Sed laoreet erat rutrum magna sodales dapibus. Sed rutrum turpis sed eros condimentum eu congue felis elementum. Vestibulum euismod arcu at lacus laoreet vitae lacinia mauris interdum. Nunc vitae mi ac diam posuere sagittis ac at dolor. 
+        </div>
+    </div>
+</body>
+
+</html>
